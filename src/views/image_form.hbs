@@ -1,0 +1,69 @@
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+
+                <form action="/image/add" method="POST" class="text-center  p-5 my-5" enctype="multipart/form-data">
+                    <p class="h4 mb-4">Faça Upload</p>
+                        <div class="form-group">
+                            <input type="text" name="title" class="form-control" placeholder="Titulo">
+                        </div>
+                
+                <div class="form-group">
+                   <div class="custom-file">
+                    <input type="file" id="file" name="image" class="custom-file-input">
+                    <label class="custom-file-label" for="file">Escolha uma foto</label>
+                   </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="desc">Descrição</label>
+                    <textarea name="description" class="form-control rounded-0" id="desc" rows="5">
+                    </textarea>
+              </div>
+                    <button class="btn btn-info my-4 btn-block" type="submit">Salvar</button>
+                </form>
+
+
+                
+            </div>
+        </div>
+        </div>
+
+        <div class="col-md-8">
+        <table class="table">
+  <thead>
+    <tr>
+     
+      <th scope="col">Titulo</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Operações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each photos}}
+    <tr>
+      
+      <td>{{title}}</td>
+      <td>{{description}}</td>
+      <td>
+      <div class="row">
+      <div class="col-md-6">
+      <a href="{{imageURL}}" target="_blank" class="btn btn-primary "><i class="fa fa-1x fa-eye"></i></a>
+      </div>
+
+      <div class="col-md-6">
+      <a href="/images/delete/{{_id}}" class="btn btn-danger ml-4"><i class="fas fa-trash-alt"></i></a>
+      </div>
+      </div>
+      </td>
+    </tr>
+      {{/each}}
+  </tbody>
+</table>
+        </div>
+    </div>
+</div>
